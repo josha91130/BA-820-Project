@@ -96,3 +96,71 @@ During our analysis, we found that training the models separately helped capture
 
 ### 3. Challenges in Handling Memory Overload  
 Since our Non_Postponed dataset contains over 2 million rows, training the model directly would lead to memory overload. To address this, we use batch processing to compute the TF-IDF incrementally, reducing memory usage. Additionally, when determining the optimal number of clusters for the K-prototype model, we sample 50,000 rows from the dataset and apply the elbow method to make the computation feasible.  
+
+## Findings and Interpretations
+
+### 1. PointMap  
+These maps show the distribution of violations exceeding the average processing time by postal code. The left map highlights areas with the most delayed cases, while the right map shows the average processing time for those cases.  
+**Brooklyn and the Bronx** have the highest number of delayed cases, but **Lower Manhattan and remote areas** experience longer average delays.  
+This may be due to complex maintenance for skyscrapers and historic buildings in the financial district and lowercase volume skewing averages in remote areas.
+
+### 2. Association Rule  
+Using Association Rule Mining with the Apriori algorithm, we analyzed the co-occurrence of violation types across buildings and their relationships with floor levels, seasons, and boroughs.  
+
+- **Non-postponed violations**:  
+  - Fire Safety & Egress Violations are more frequent on the **1st floor** and in **Queens**.  
+  - No strong seasonal or general floor-level patterns were found.
+
+- **Postponed violations**:  
+  - **Queens** is a hotspot for structural and plumbing violations.  
+  - **Bronx** has more compliance-related issues.  
+  - Structural repairs occur more frequently on **lower floors**, especially the **1st floor**, likely due to higher wear and tear.
+
+**Conclusion**:  
+Borough and floor level influence violation patterns, while seasonal effects remain weak.  
+These insights can guide fire safety enforcement in Queens and proactive structural maintenance on lower floors.
+
+### 3. Topic Modeling  
+After applying **TF-IDF vectorization** and **Non-Negative Matrix Factorization (NMF)** for topic modeling, we identified key violation categories for both non-postponed and postponed cases.
+
+- **Non-postponed violations**:  
+  Primarily involve **maintenance-related issues** that are typically resolved within the required timeframe.  
+  Common topics include:
+  - Smoke & carbon monoxide detector issues  
+  - Structural repairs  
+  - Pest control & mold abatement  
+  - Interior and flooring repairs  
+  - Water leaks & plumbing  
+  - Heating & air quality concerns  
+  - Fire safety & egress violations  
+
+- **Postponed violations**:  
+  Tend to involve more **complex issues**, such as:
+  - Lead-based paint hazards  
+  - Plumbing failures  
+  - Electrical and lighting issues  
+  - Structural and fixture repairs  
+  - Regulatory compliance  
+
+These violations often require **specialized remediation**, **extensive documentation**, or **regulatory approval**, leading to longer resolution times.
+
+**Summary**:  
+This distinction underscores the need for proactive intervention in cases that are more likely to experience delays, enabling more efficient enforcement and resource allocation.
+
+---
+
+## Conclusions  
+According to our results, targeted interventions can improve **urban housing policy**, **proactive maintenance**, **tenant protection**, and **resource allocation**.
+
+- **Brooklyn and the Bronx** exhibit a particularly high volume of delayed cases.  
+  → City governments can devote additional manpower and standardize processes to reduce backlogs.  
+
+- **Lower Manhattan** has fewer cases but longer average processing times.  
+  → May benefit from specialized consultants or dedicated projects.  
+
+- **Association Rules findings** reveal:  
+  - Fire safety violations are more frequent on the **first floor**  
+  - Structural/plumbing issues are especially prevalent in **Queens**  
+  → By prioritizing inspections on these floors or administrative districts, property managers and landlords can proactively address high-risk violations, minimizing potential delays.
+
+**Finally**, housing agencies can optimize enforcement by strategically deploying **inspectors**, **legal teams**, and **maintenance crews** to high-risk cases.
