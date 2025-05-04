@@ -1,5 +1,10 @@
 # Uncovering Housing Risks In NYC: Unsupervised Learning for NYC Housing Code Violation
 
+---
+**Contributor: ** Hui Gao, Kayla Huang, WeiAn Huang, ZheYu Lin 
+
+---
+**IntroDuction:**
 Housing violations in NYC, particularly in Manhattan and Brooklyn, threaten tenant safety and urban livability. The HPD issues violations for unsafe conditions, but identifying high-risk buildings and optimizing enforcement remains challenging due to the volume and complexity of data. Preliminary findings indicate that older buildings in densely populated areas exhibit a higher recurrence of severe violations, making them a priority for targeted regulatory intervention. This project uses geospatial analysis, clustering, association rules and text analysis to provide insights for strengthening enforcement, tenant protection, resource allocation, and policy recommendations, ensuring a more efficient and proactive approach to housing code enforcement in NYC.
 Specifically, we aim to: 
 1. Identify common violation types and trends across boroughs to detect high-risk regions. 
